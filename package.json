@@ -1,0 +1,96 @@
+{
+	"name": "@brikcss/core",
+	"version": "0.0.1",
+	"description": "Brikcss core brik components, including browser reset, colors, rhythm / spacing, and typography.",
+	"author": "Brikcss <https://github.com/brikcss>",
+	"contributors": [
+		"The Zimmee <thezimmee@gmail.com>"
+	],
+	"homepage": "https://github.com/brikcss/core",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/brikcss/core.git"
+	},
+	"bugs": {
+		"url": "https://github.com/brikcss/core/issues"
+	},
+	"keywords": [
+		"brikcss",
+		"css",
+		"browser reset",
+		"css reset",
+		"colors",
+		"rhythm",
+		"vertical rhythm",
+		"vertical grid",
+		"spacing",
+		"typography"
+	],
+	"main": "./dist/core.min.css",
+	"module": "./dist/core.min.css",
+	"browser": "./dist/core.min.css",
+	"directories": {
+		"lib": "./dist"
+	},
+	"files": [
+		"./dist",
+		"./src"
+	],
+	"publishConfig": {
+		"tag": "dev",
+		"access": "public"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "NODE_ENV=production node ./node_modules/.bin/pre-commit-lint",
+			"commit-msg": "commitlint -e $GIT_PARAMS && . ./node_modules/.bin/commit-msg-stamp-branch ${GIT_PARAMS}",
+			"pre-push": ". ./node_modules/.bin/pre-push-check-stage && echo \"\n[ok] Pushing code...\""
+		}
+	},
+	"scripts": {
+		"start": "npm run test",
+		"preci": "npm run build:prod",
+		"ci": "concurrently \"npm run test:lint\" \"npm run test:coverage && npm run test:report\"",
+		"pretest": "npm run build",
+		"test": "npm run test:lint",
+		"test:lint": "concurrently \"npm run lint:js\" \"npm run lint:css\" && echo \"\n[ok] Linter complete.\n\"",
+		"test:unit": "node ./node_modules/.bin/mocha \"./test/*.spec.js\" --reporter=mocha-better-spec-reporter --colors",
+		"test:coverage": "nyc --reporter=lcov --reporter=text mocha \"./test/*.spec.js\" --recursive",
+		"test:report": "concurrently \"cat coverage/lcov.info | codacy-coverage\" \"cat coverage/lcov.info | coveralls\"",
+		"watch": "npm run test:lint -- --watch",
+		"prebuild": "rimraf dist",
+		"build": "concurrently \"stak --config .stakcssrc.js --profile main\" \"stak --config .stakcssrc.js --profile utilities\"",
+		"build:min": "NODE_ENV=production concurrently \"stak --config .stakcssrc.js --profile main --output ./dist/core.init.min.css\" \"stak --config .stakcssrc.js --profile utilities --output ./dist/core.utilities.min.css\"",
+		"build:prod": "concurrently \"NODE_ENV=development npm run build\" \"NODE_ENV=production npm run build:min\"",
+		"lint:css": "node ./node_modules/.bin/stylelint src/**/*.{.css,.scss} --format=stylish",
+		"lint:js": "node ./node_modules/.bin/eslint ./src/**/*.js",
+		"serve": "browser-sync start --config ./.browsersyncrc.js",
+		"semantic-release": "semantic-release"
+	},
+	"devDependencies": {
+		"@brikcss/git-hooks": "1.x",
+		"@brikcss/stakcss": "0.x",
+		"@brikcss/stakcss-bundler-copy": "0.x",
+		"@brikcss/stakcss-bundler-postcss": "0.x",
+		"@brikcss/stakcss-bundler-sass": "0.x",
+		"@brikcss/stylelint-config-css": "0.x",
+		"@brikcss/stylelint-config-sass": "0.x",
+		"@commitlint/cli": "6.x",
+		"autoprefixer": "8.x",
+		"browser-sync": "2.x",
+		"codacy-coverage": "2.x",
+		"concurrently": "3.x",
+		"coveralls": "3.x",
+		"cssnano": "3.x",
+		"mocha": "5.x",
+		"mocha-better-spec-reporter": "3.x",
+		"nyc": "11.x",
+		"postcss-reporter": "5.x",
+		"rimraf": "2.x",
+		"semantic-release": "15.x",
+		"stylelint": "9.x",
+		"stylelint-config-recommended": "2.x",
+		"stylelint-formatter-pretty": "1.x",
+		"stylelint-scss": "2.x"
+	}
+}
