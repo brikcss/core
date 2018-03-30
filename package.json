@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/core",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Brikcss core brik components, including browser reset, colors, rhythm / spacing, and typography.",
 	"author": "Brikcss <https://github.com/brikcss>",
 	"contributors": [
@@ -33,8 +33,7 @@
 		"lib": "./dist"
 	},
 	"files": [
-		"./dist",
-		"./src"
+		"dist"
 	],
 	"publishConfig": {
 		"tag": "dev",
@@ -60,8 +59,8 @@
 		"watch": "npm run test:lint -- --watch",
 		"prebuild": "rimraf dist",
 		"build": "concurrently \"stak --config .stakcssrc.js --profile main\" \"stak --config .stakcssrc.js --profile utilities\"",
-		"build:min": "NODE_ENV=production concurrently \"stak --config .stakcssrc.js --profile main --output ./dist/core.init.min.css\" \"stak --config .stakcssrc.js --profile utilities --output ./dist/core.utilities.min.css\"",
-		"build:prod": "concurrently \"NODE_ENV=development npm run build\" \"NODE_ENV=production npm run build:min\"",
+		"build:min": "NODE_ENV=production concurrently \"stak --config .stakcssrc.js --profile main --output ./dist/css/core.init.min.css\" \"stak --config .stakcssrc.js --profile utilities --output ./dist/css/core.utilities.min.css\"",
+		"build:prod": "concurrently \"NODE_ENV=development npm run build\" \"NODE_ENV=production npm run build:min\" \"stak --config .stakcssrc.js --profile sass\"",
 		"lint:css": "node ./node_modules/.bin/stylelint src/**/*.{.css,.scss} --format=stylish",
 		"lint:js": "node ./node_modules/.bin/eslint ./src/**/*.js",
 		"serve": "browser-sync start --config ./.browsersyncrc.js",

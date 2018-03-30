@@ -19,12 +19,18 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
 	main: {
 		source: './src/core.init.scss',
-		output: './dist/core.init.css',
+		output: './dist/css/core.init.css',
 		bundlers
 	},
 	utilities: {
 		source: './src/core.utilities.scss',
-		output: './dist/core.utilities.css',
+		output: './dist/css/core.utilities.css',
 		bundlers
+	},
+	sass: {
+		source: './src/**/*',
+		output: './dist/sass/',
+		cwd: './src',
+		bundlers: ['@brikcss/stakcss-bundler-copy']
 	}
 };
