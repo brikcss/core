@@ -99,7 +99,7 @@ $colors__body: map-get($colors, dark) !default;
 		@return $name;
 	}
 	@if map-has-key($colors__vars, $name) {
-		@return var(-- #{$name});
+		@return unquote('var(--#{$name})');
 	}
 	@if map-has-key($colors, $name) {
 		@return map-get($colors, $name);
