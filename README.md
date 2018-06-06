@@ -1,7 +1,5 @@
 # Brikcss Core
 
-> Core brik components for [Brikcss](https://github.com/brickss). It includes browser reset, colors, rhythm / spacing, and typography.
-
 <!-- Shields. -->
 <p>
 	<!-- NPM version. -->
@@ -42,18 +40,33 @@
 	</a> -->
 </p>
 
-## Environment support
+Core brik components for [Brikcss](https://github.com/brickss). It includes browser reset, colors, rhythm / spacing, and typography.
+
+---
+
+## Environment and browser support
 
 | Node   | CLI   | UMD   | ES Module | Browser   |
 |:------:|:-----:|:-----:|:---------:|:---------:|
-| x      | x     | x     | x         | ✔         |
+| ✓      | x     | ✓     | ✓         | ✓         |
+
+| Chrome | Firefox | Safari | Edge | IE  | iOS | Android |
+|:------:|:-------:|:------:|:----:|:---:|:---:|:-------:|
+| ✓      | ✓       | ✓      | ✓    | 11  | ✓   | ✓       |
+
+\* _Note: Since [CSS Variables](https://caniuse.com/#search=css%20variables) are used, IE11 is supported with the use of a custom variables polyfill, such as [postcss-var-shim](https://github.com/luwes/postcss-var-shim)._
 
 ## Install
 
-1. Install:
+1. Install from NPM:
 
 	```sh
-	npm install @brikcss/core --save-dev
+	npm i -D @brikcss/core
 	```
 
-2. Include CSS or SASS stylesheets into your app.
+2. Include files in your app:
+
+	- _PostCSS with [postcss-import](https://github.com/postcss/postcss-import):_ `@import '@brikcss/core';`.
+	- _Precompiled:_ Include `./dist/core.min.css` for version precompiled to vanilla CSS.
+
+_Note: Brikcss Core is a collection of Brikcss front end components. Refer to each component's repo for usage documentation._

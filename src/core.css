@@ -1,0 +1,37 @@
+/*! core.css | MIT License | brikcss  <https://github.com/brikcss> */
+
+/** Core imports.
+    ============================================================================================= */
+
+@import '@brikcss/browser-reset';
+@import '@brikcss/typography/src/typography.css';
+@import '@brikcss/colors';
+@import '@brikcss/spacing';
+
+/** Typography extension.
+    ============================================================================================= */
+
+/* stylelint-disable max-nesting-depth */
+:root {
+	--font__title1: {
+		@apply --font__h4;
+		font-weight: 300;
+	}
+	--font__title2: {
+		@apply --font__h5;
+	}
+	--font__title3: {
+		@apply --font__h6;
+	}
+}
+/* stylelint-enable max-nesting-depth */
+
+.font__title1 {
+	@apply --font__title1;
+}
+.font__title2 {
+	@apply --font__title2;
+}
+.font__title3 {
+	@apply --font__title3;
+}

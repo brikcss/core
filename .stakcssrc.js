@@ -1,36 +1,46 @@
-const bundlers = [
-	{ run: '@brikcss/stakcss-bundler-sass', options: { sourceMap: false } },
-	{
-		run: '@brikcss/stakcss-bundler-postcss',
-		options: {
-			map: false
-		},
-		plugins: [
-			require('autoprefixer')({ cascade: false }),
-			require('postcss-reporter')({ clearReportedMessages: true })
-		]
-	}
+/** Setup.
+ ============================================================================================= */
+
+const env = process.env.NODE_ENV;
+const isProd = ['production', 'prod', 'test'].includes(env);
+const loadPostcssPlugins = require('./.postcssrc.js');
+const basePostcssPlugins = [
+	'postcss-import',
+	'postcss-mixins',
+	'postcss-font-magician',
+	'postcss-apply',
+	'postcss-pxtorem',
+	'autoprefixer'
 ];
 
-if (process.env.NODE_ENV === 'production') {
-	bundlers[1].plugins.push(require('cssnano'));
-}
+/** Config export object.
+ ============================================================================================= */
 
-module.exports = {
-	main: {
-		source: './src/core.init.scss',
-		output: './dist/css/core.init.css',
-		bundlers
-	},
-	utilities: {
-		source: './src/core.utilities.scss',
-		output: './dist/css/core.utilities.css',
-		bundlers
-	},
-	sass: {
-		source: './src/**/*',
-		output: './dist/sass/',
-		cwd: './src',
-		bundlers: ['@brikcss/stakcss-bundler-copy']
+let config = {
+	css: {
+		source: 'src/core.css',
+		output: './dist/core.css',
+		bundlers: [
+			{
+				run: '@brikcss/stakcss-bundler-postcss',
+				options: { skipConfig: true },
+				plugins: loadPostcssPlugins(...basePostcssPlugins.concat(['postcss-reporter']))
+			}
+		]
 	}
 };
+
+if (isProd) {
+	config.css_min = Object.assign({}, config.css, {
+		output: 'dist/core.min.css',
+		bundlers: [
+			{
+				run: '@brikcss/stakcss-bundler-postcss',
+				options: { skipConfig: true },
+				plugins: loadPostcssPlugins(...basePostcssPlugins.concat(['postcss-csso']))
+			}
+		]
+	});
+}
+
+module.exports = config;

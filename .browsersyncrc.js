@@ -1,12 +1,13 @@
 module.exports = {
 	server: {
-		baseDir: './dist/angularjs/',
-		directory: true,
-		index: 'index.html',
-		routes: {}
+		baseDir: '.',
+		directory: false
+		// index: 'index.html',
+		// routes: {}
 	},
-	files: ['dist'],
-	ignore: [],
+	startPath: 'test/fixtures',
+	files: ['dist/*.css', 'test/fixtures/*.html'],
+	ignore: ['src/**/*', '**/*.spec.js', './*.json', './.*'],
 	single: false,
 	watch: true,
 	watchEvents: ['add', 'change', 'unlink'],
@@ -28,7 +29,6 @@ module.exports = {
 	logSnippet: true,
 	open: true,
 	browser: 'default',
-	startPath: null,
 	reloadOnRestart: true,
 	notify: {
 		styles: {

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brikcss Core</title>
+	<link rel="stylesheet" type="text/css" href="../../dist/core.css">
+	<style type="text/css">
+		/* Test specific styles. */
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.cards {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.card {
+			background-color: hsl(0, 0%, 100%);
+			box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.3);
+			display: flex;
+			align-items: stretch;
+			justify-content: center;
+			height: 10rem;
+			width: 10rem;
+			margin-left: 1rem;
+			margin-right: 1rem;
+			margin-bottom: 2rem;
+		}
+		.card--dark {
+			background-color: hsl(0, 0%, 20%);
+		}
+		.color {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+		}
+
+		.font {
+			max-width: 30ex;
+		}
+
+		.boxes {
+			background-color: yellow;
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		.box {
+			background-color: orange;
+			height: 6rem;
+		}
+		.box__content {
+			background-color: green;
+			text-align: center;
+		}
+		.box__content:before {
+			content: 'content';
+		}
+	</style>
+</head>
+<body>
+
+	<h1 class="font__title1">Brikcss Core</h1>
+	<p>Consists of:</p>
+	<ul>
+		<li><a href="#browser-reset">Browser Reset</a></li>
+		<li><a href="#typography">Typography</a></li>
+		<li><a href="#colors">Colors</a></li>
+		<li><a href="#spacing">Spacing</a></li>
+	</ul>
+
+	<h2 id="browser-reset" class="font__title2">Brikcss Browser Reset</h2>
+	<h1 class="mt-4">Heading 1</h1>
+	<h2>Heading 2</h2>
+	<h3>Heading 3</h3>
+	<h4>Heading 4</h4>
+	<h5>Heading 5</h5>
+	<h6>Heading 6</h6>
+
+	<p><strong>Lorem ipsum dolor sit amet</strong>, consectetur<sup>sup</sup> adipisicing<sub>sub</sub> elit, <em>sed do eiusmod</em> <abbr title="Cascading Style Sheets">CSS</abbr> tempor <kbd>esc</kbd> incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	<p>Blockquote</p>
+	<blockquote>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	</blockquote>
+
+	<p>Code block</p>
+	<pre><code>function myFunction(obj = {}) {
+	return 'My awesome function.';
+}</code></pre>
+
+	<hr>
+
+	<h2>Lists</h2>
+	<p>Unordered list</p>
+	<ul>
+		<li>Item one</li>
+		<li>Item two <ul>
+			<li>Nested one</li>
+			<li>Nested two</li>
+			<li>Nested three</li>
+		</ul></li>
+		<li>Item three</li>
+	</ul>
+
+	<p>Ordered list</p>
+	<ol>
+		<li>Number 1</li>
+		<li>Number 2 <ol>
+			<li>Nested 1</li>
+			<li>Nested 2</li>
+			<li>Nested 3</li>
+		</ol></li>
+		<li>Number 3</li>
+	</ol>
+
+	<p>Definition list</p>
+	<dl>
+		<dt>Title one</dt>
+		<dd>Definition one</dd>
+		<dt>Title two</dt>
+		<dd>Definition two</dd>
+		<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</dd>
+	</dl>
+
+	<h2>Table</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>one</th>
+				<th>two</th>
+				<th>three</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>data</td>
+				<td>data</td>
+				<td>data</td>
+			</tr>
+			<tr>
+				<td>data</td>
+				<td>data</td>
+				<td>data</td>
+			</tr>
+			<tr>
+				<td>data</td>
+				<td>data</td>
+				<td>data</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>uno</th>
+				<th>dos</th>
+				<th>tres</th>
+			</tr>
+		</tfoot>
+	</table>
+
+	<h2>Image</h2>
+	<figure>
+		<img src="http://via.placeholder.com/200x100">
+	</figure>
+
+	<h2>Form</h2>
+	<form>
+		<fieldset>
+			<legend>Text inputs.</legend>
+			<input type="text" name="textinput" placeholder="Text input">
+			<input type="search" name="searchinput" placeholder="Search input">
+			<input type="email" name="emailinput" placeholder="Email input">
+			<input type="password" name="passwordinput" placeholder="Password input">
+			<input type="url" name="urlinput" placeholder="Url input">
+			<input type="tel" name="telinput" placeholder="Tel input">
+		</fieldset>
+		<fieldset>
+			<legend>Date, time, &amp; number inputs.</legend>
+			<input type="date" name="dateinput">
+			<input type="month" name="monthinput">
+			<input type="week" name="weekinput">
+			<input type="time" name="timeinput">
+			<input type="number" name="numberinput">
+		</fieldset>
+		<fieldset>
+			<legend>Checkbox inputs.</legend>
+			<label><input type="checkbox" name="checkbox"> checkbox</label>
+			<label><input type="radio" name="radio"> radio</label>
+		</fieldset>
+		<fieldset>
+			<legend>Select box.</legend>
+			<select>
+				<option>one</option>
+				<option>two</option>
+				<option>three</option>
+			</select>
+		</fieldset>
+		<fieldset>
+			<legend>Text area.</legend>
+			<textarea placeholder="Textarea placeholder text..."></textarea>
+		</fieldset>
+		<fieldset>
+			<legend>Other graphical inputs.</legend>
+			<input type="color" name="colorinput">
+			<input type="file" name="fileinput">
+			<progress value="5" max="10">50%</progress>
+			<input type="range" name="rangeinput">
+		</fieldset>
+	</form>
+
+	<h2>Buttons and links</h2>
+	<a href="#">Hyperlink</a>
+	<a>Hyperlink (no href)</a>
+	<button type="button">Button</button>
+	<input type="button" name="button" value="Button Input">
+	<input type="reset" name="submitbutton" value="Reset Input">
+	<input type="submit" name="submitbutton" value="Submit Input">
+
+	<h2>Summary / Details</h2>
+	<details>
+		<summary>System Requirements</summary>
+		<p>Requires a computer running an operating system. The computer must have some memory and ideally some kind of long-term storage. An input device as well as some form of output device is recommended.</p>
+	</details>
+
+	<h2 id="typography" class="font__title2">Brikcss Typography</h2>
+	<p class="font font__overline">Overline test test test test test test test test test</p>
+	<p class="font font__caption">Caption test test test test test test test test test</p>
+	<p class="font font__button">Button test test test test test test test test test</p>
+	<p class="font font__body2">Body 2 test test test test test test test test test</p>
+	<p class="font font__body">Body (default) test test test test test test test test test</p>
+	<p class="font font__subtitle2">Subitle 2 test test test test test test test test test</p>
+	<p class="font font__subtitle">Subtitle test test test test test test test test test</p>
+	<p class="font font__title3">Title 3 test test test test test test test test test</p>
+	<p class="font font__title2">Title 2 test test test test test test test test test</p>
+	<p class="font font__title1">Title 1 test test test test test test test test test</p>
+	<p class="font font__h3">Heading 3 test test test test test test test test test</p>
+	<p class="font font__h2">Heading 2 test test test test test test test test test</p>
+	<p class="font font__h1">Heading 1 test test test test test test test test test</p>
+
+	<h2 id="colors" class="font__title2">Brikcss Colors</h2>
+	<h3 class="font__title3">Background colors</h3>
+	<div class="cards">
+		<div class="card">
+			<div class="color bg-brand1">.bg-brand1</div>
+		</div>
+		<div class="card">
+			<div class="color bg-brand2">.bg-brand2</div>
+		</div>
+		<div class="card">
+			<div class="color bg-brand3">.bg-brand3</div>
+		</div>
+		<div class="card">
+			<div class="color bg-brand4">.bg-brand4</div>
+		</div>
+
+		<div class="card">
+			<div class="color bg-supernav">.bg-supernav</div>
+		</div>
+		<div class="card">
+			<div class="color bg-supernav--dark">.bg-supernav--dark</div>
+		</div>
+		<div class="card">
+			<div class="color bg-supernav--icon">.bg-supernav--icon</div>
+		</div>
+		<div class="card">
+			<div class="color bg-gray">.bg-gray</div>
+		</div>
+	</div>
+
+	<h3 class="font__title3">Text colors</h3>
+	<div style="padding: 0 1rem 1rem;">
+		<h3 class="color-dark1">.color-dark or .color-dark1</h3>
+		<h3 class="color-dark2">.color-dark2</h3>
+		<h3 class="color-dark3">.color-dark3</h3>
+		<h3 class="color-dark4">.color-dark4</h3>
+	</div>
+
+	<div style="background-color: hsl(0, 0%, 20%); padding: 1rem;">
+		<h3 class="color-light1">.color-light or .color-light1</h3>
+		<h3 class="color-light2">.color-light2</h3>
+		<h3 class="color-light3">.color-light3</h3>
+		<h3 class="color-light4">.color-light4</h3>
+	</div>
+
+	<h2 id="spacing" class="font__title2">Brikcss Spacing</h2>
+	<div class="boxes p-1 m-1">
+		<div class="box m-1 p-4 pr-2">
+			<div class="box__content mx-1 mt-2"></div>
+		</div>
+
+		<div class="box m-0-5 p-1 pl-2">
+			<div class="box__content"></div>
+		</div>
+
+		<div class="box ml-2 my-1-5">
+			<div class="box__content py-2 px-0-5"></div>
+		</div>
+
+		<div class="box mt-4 p-4 ml-0-5">
+			<div class="box__content p-0-5 pr-4"></div>
+		</div>
+
+		<div class="box p-0-5 ml-3">
+			<div class="box__content p-4"></div>
+		</div>
+	</div>
+
+</body>
+</html>

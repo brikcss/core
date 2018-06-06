@@ -7,7 +7,10 @@
 
 const config = {
 	// See https://github.com/semantic-release/github/
-	github: '@semantic-release/github',
+	github: {
+		path: '@semantic-release/github',
+		assignees: ['thezimmee']
+	},
 	// See https://github.com/semantic-release/npm.
 	npm: '@semantic-release/npm'
 };
