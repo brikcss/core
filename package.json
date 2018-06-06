@@ -1,6 +1,6 @@
 {
 	"name": "@brikcss/core",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Brikcss core brik components, including browser reset, colors, rhythm / spacing, and typography.",
 	"author": "Brikcss <https://github.com/brikcss>",
 	"contributors": [
@@ -26,7 +26,7 @@
 		"spacing",
 		"typography"
 	],
-	"main": "./dist/core.min.css",
+	"main": "./src/core.css",
 	"directories": {
 		"lib": "./dist"
 	},
