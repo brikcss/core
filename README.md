@@ -1,5 +1,7 @@
 # Brikcss Core
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/brikcss/core.svg)](https://greenkeeper.io/)
+
 <!-- Shields. -->
 <p>
 	<!-- NPM version. -->
